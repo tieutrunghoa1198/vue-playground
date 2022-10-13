@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import VHeader from "@/components/header/v-header.vue";
-import VFooter from "@/components/footer/v-footer.vue";
+import Header from "@/components/layout/Header.vue";
+import Footer from "@/components/layout/Footer.vue";
 import('./assets/home.css');
 </script>
 
 <template>
-  <v-header></v-header>
+  <Header/>
   <RouterView />
-  <v-footer></v-footer>
+  <Footer/>
 </template>
 
