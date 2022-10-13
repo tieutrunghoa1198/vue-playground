@@ -67,5 +67,6 @@ async function test() {
 
   const res = await store.dispatch('HomeStore/createStudent', student);
   console.log(res, 'here in vue');
+  console.log(store.getters["HomeStore/getStudentId"], 'here in vue');
 }
 </script>

@@ -6,4 +6,7 @@ export default {
         male: 'Male',
         female: 'Female'
     },
+    apiUrl: '/api/employees',
+    apiFail: 'Not return 200 Code!',
+    successCode: '200'
 }
