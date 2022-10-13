@@ -65,7 +65,7 @@ async function test() {
     gender: (gender.value === 'male') ? true : false ,
   }
 
-  await store.dispatch('HomeStore/createStudent', student);
-  console.log(store.getters["HomeStore/getStudentId"], 'created student');
+  const res = await store.dispatch('HomeStore/createStudent', student);
+  console.log(res, 'here in vue');
 }
 </script>
