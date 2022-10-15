@@ -6,12 +6,12 @@ const state = () => ({
   id: '',
   isCreated: false
 });
-const StorePath = {
+const HomeState = {
   id: "HomeStore/id",
   isCreated: "HomeStore/isCreated"
 }
 const getters = {
-  getStudentId: (state: any) => state[StorePath.id],
+  getStudentId: (state: any) => state[HomeState.id],
 };
 
 const actions = {
@@ -27,8 +27,8 @@ const actions = {
 
 const mutations = {
   [IMutations.returned_employee](state: any, payload: any) {
-    state[StorePath.id] = payload.data;
-    state[StorePath.isCreated] = true;
+    state[HomeState.id] = payload.data;
+    state[HomeState.isCreated] = true;
   }
 };
 
