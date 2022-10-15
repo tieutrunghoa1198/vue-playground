@@ -14,7 +14,7 @@
             <router-link class="nav-link" to="/about">About</router-link>
           </li>
           <li class="nav-item rounded">
-            <a class="nav-link" href="#"><i class="bi bi-telephone-fill me-2"></i>Contact</a>
+            <router-link class="nav-link" to="/list">List</router-link>
           </li>
           <li class="nav-item dropdown rounded">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill me-2"></i>Profile</a>
