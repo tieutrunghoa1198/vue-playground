@@ -1,5 +1,7 @@
 import type { Student } from "@/components/home/types/student";
-import { IMutations } from "@/store/IMutations";
+import {IMutations} from "@/store/IMutations";
+import type {DefaultCommit} from "@/store/IMutations";
+
 import BaseAPI from "@/apis/axios";
 import constants from "@/components/home/constants/constants";
 const state = () => ({
@@ -23,6 +25,11 @@ const actions = {
       return res.data;
     } else return constants.apiFail;
   },
+
+  getStudent: async ({ commit, state }: DefaultCommit, payload: string) => {
+    const res = await BaseAPI.get(constants.apiUrl + `/${payload}`)
+    return res;
+  }
 };
 
 const mutations = {

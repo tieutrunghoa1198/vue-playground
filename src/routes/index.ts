@@ -5,7 +5,8 @@ import ListEmployee from '@/components/list-employee/ListEmployees.vue';
 const routes = [
     { path: '/', name: 'home', component: Home },
     { path: '/about', name: 'about', component: About },
-    { path: '/list', name: 'list', component: ListEmployee }
+    { path: '/list', name: 'list', component: ListEmployee },
+    { path: '/employee/:id', name: 'employee', component: Home }
 ]
 
 const router = createRouter({

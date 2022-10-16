@@ -47,10 +47,11 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import constants from "@/components/home/constants/constants";
 import type {Student} from "@/components/home/types/student";
 import {useStore} from "vuex";
+import {useRoute, useRouter} from "vue-router";
 
 const title = 'create employee'
 const gender = ref('');
@@ -69,4 +70,16 @@ async function test() {
   console.log(res, 'here in vue');
   console.log(store.getters["HomeStore/getStudentId"], 'here in vue');
 }
+
+onMounted(async () => {
+  const route = useRoute();
+  const id = route.params.id;
+  if (id) {
+    const res = await store.dispatch("HomeStore/getStudent", id)
+    console.log(res);
+    fullName.value = res.data.fullname;
+    age.value = res.data.age;
+    gender.value = res.data.gender;
+  }
+})
 </script>

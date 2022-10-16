@@ -1,23 +1,30 @@
 <script setup lang="ts">
 import {useStore} from "vuex";
-import constants from "@/components/home/constants/constants";
-import type {Student} from "@/components/home/types/student";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
+import {useRoute, useRouter} from "vue-router";
 
+let router: any;
 const store = useStore();
 let students = ref([]);
-async function clickHere() {
+
+onMounted(async () => {
   const res = await store.dispatch("List/getAll");
   console.log(res)
   students.value = res;
+})
+
+function editEmployee(id: any, event: any) {
+  console.log(router);
+  router.push(`/employee/${id}`);
 }
-// const listEmployees = await store.dispatch("List/getAll");
-// console.log(listEmployees);
+
+onMounted(async () => {
+  router = useRouter();
+})
 </script>
 <template>
   <main class="container d-flex justify-content-center">
     <div class="col-8 py-5">
-      <button class="btn btn-primary" @click="clickHere">click</button>
       <h1>Employee Table</h1>
       <table class="table">
         <caption>List of users</caption>
@@ -38,7 +45,9 @@ async function clickHere() {
           <td>{{ item.age }}</td>
           <td>{{ item.gender }}</td>
           <td class="text-center">
-            <button class="btn btn-primary mx-2">Edit</button>
+            <button
+                class="btn btn-primary mx-2"
+                @click="editEmployee(item._id, $event)">Edit</button>
             <button class="btn btn-outline-danger mx-2">Delete</button>
           </td>
         </tr>
